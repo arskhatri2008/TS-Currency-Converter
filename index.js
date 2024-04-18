@@ -1,6 +1,5 @@
-import inquirer from "inquirer"
-
-let currencyRate : any = {
+import inquirer from "inquirer";
+let currencyRate = {
     PKR: 1,
     USD: 0.0036,
     EUR: 0.0034,
@@ -11,9 +10,8 @@ let currencyRate : any = {
     CAD: 0.0050,
     AUD: 0.0056,
     OMR: 0.0014,
-}
-
-let userAnswer : any = await inquirer.prompt([
+};
+let userAnswer = await inquirer.prompt([
     {
         name: "from",
         type: "list",
@@ -31,11 +29,10 @@ let userAnswer : any = await inquirer.prompt([
         type: "number",
         message: "Enter the amount."
     }
-])
-
-let fromAmount: any = currencyRate[userAnswer.from]
-let toAmount : any = currencyRate[userAnswer.to]
-let amount = userAnswer.amount
-let baseAmount = amount / fromAmount
-let convertedAmount = baseAmount * toAmount
-console.log(`The converted amount is ${convertedAmount.toFixed(2)} ${userAnswer.to}`)
+]);
+let fromAmount = currencyRate[userAnswer.from];
+let toAmount = currencyRate[userAnswer.to];
+let amount = userAnswer.amount;
+let baseAmount = amount / fromAmount;
+let convertedAmount = baseAmount * toAmount;
+console.log(`The converted amount is ${convertedAmount.toFixed(2)} ${userAnswer.to}`);
